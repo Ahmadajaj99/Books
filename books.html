@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>إضافة صفوف إلى الجدول</title>
+    <!-- <style>
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+
+        th {
+            border: 1px solid blue;
+            padding: 8px;
+            margin: auto;
+            text-align: center;
+        }
+
+        td {
+            border: 1px solid blue;
+            padding: 8px;
+            text-align: center;
+        }
+
+        button {
+            margin-top: 10px;
+        }
+    </style> -->
+</head>
+
+<body>
+    <section class="properties">
+        <h1>Books </h1>
+        <div class="mmt-custom-content col-sm-12 mmt-table-custom-parent col-lg-12">
+            <table id="TABLE-1" class="mmt-table mmt-table-custom selected">
+                <thead>
+                    <tr>
+                        <th>اختيار</th>
+                        <th>اظهار التفاصيل</th>
+                        <th>السعر</th>
+                        <th>العنوان</th>
+                        <th>رمز الكتاب</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td><button class="details-btn">More</button></td>
+                        <td>8000 ليرة سورية</td>
+                        <td>مئة عام من العزلة</td>
+                        <td>959-5455hr66674</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td><button onclick="showDetails(this)">More</button></td>
+                        <td>50000 ليرة سورية</td>
+                        <td>1984</td> 
+                        <td>959-5455hr0999009</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td><button onclick="showDetails(this)">More</button></td>
+                        <td>15000 ليرة سورية</td>
+                        <td>القرآن المقدس</td>
+                        <td>959-5455hr878</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td><button onclick="showDetails(this)">More</button></td>
+                        <td>44000 ليرة سورية</td>
+                        <td>الجريمة والعقاب</td>
+                        <td>959-5455hr4414</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td><button onclick="showDetails(this)">More</button></td>
+                        <td>20000 ليرة سورية</td>
+                        <td> البحث عن الزمن المفقود</td>
+                        <td>959-5455hr4452</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td><button onclick="showDetails(this)">More</button></td>
+                        <td>50000 ليرة سورية</td>
+                        <td>ثلاثية نجيب محفوظ</td>
+                        <td>959-5455hr445632</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td><button onclick="showDetails(this)">More</button></td>
+                        <td>30000 ليرة سورية</td>
+                        <td>العطر: قصة قاتل</td>
+                        <td>959-5455hr44563</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td><button onclick="showDetails(this)">More</button></td>
+                        <td>25000 ليرة سورية</td>
+                        <td>أن تقتل طائراً بريئاً </td>
+                        <td>959-5455hr44122</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td><button onclick="showDetails(this)">More</button></td>
+                        <td>50000 ليرة سورية</td>
+                        <td>زوربا اليوناني</td>
+                        <td>959-5455hr7741</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td><button onclick="showDetails(this)">More</button></td>
+                        <td>4000 ليرة سورية</td>
+                        <td>لعداء للطائرة الورقية</td>
+                        <td>959-5455hr66325</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+    <button id="openPopupBtn" role="button"><span>Go Now</span></button>
+    <br>
+    <a href="index.html">
+        <button id="but" role="button"><span>Home </span></button>
+    </a>
+
+    <div id="popup" class="popup">
+        <h2>عنوان النافذة المنبثقة</h2>
+        <form id="applicationForm">
+            <label for="fullName">الاسم الكامل لمقدم الطلب:</label>
+            <input type="text" id="fullName" name="fullName" required><br><br>
+            <label for="nationalID">الرقم الوطني:</label>
+            <input type="text" id="nationalID" name="nationalID" pattern="[0-9]{11}"><br><br>
+            <label for="birthDate">تاريخ الولادة:</label>
+            <input type="date" id="birthDate" name="birthDate"><br><br>
+            <label for="mobileNumber">رقم الموبايل:</label>
+            <input type="tel" id="mobileNumber" name="mobileNumber" pattern="[0-9]{10}"><br><br>
+            <label for="email">البريد الإلكتروني:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            <button type="button" id="submitFormBtn">إرسال</button>
+        </form>
+        <div id="totalPriceMessage"></div>
+        <button id="closePopupBtn">إغلاق</button>
+    </div>
+
+
+    <div id="successPopup" class="popup">
+        <button id="closeSuccessPopupBtn">إغلاق</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="myfunctions.js"></script>
+
+</body>
+
+</html>
